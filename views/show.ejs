@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Data</title>
+    <style>
+        table,th,tr,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Amount</th>
+          <th>Transaction Type</th>
+          <th>Date</th>
+          <th>id</th>
+          <th>Action</th>
+        </tr>
+        <%for(let user of data){%>
+            <tr>
+             <td><%= user.amount %></td>
+             <td><%= user.type%></td>
+             <td><%= user.date%></td>
+             <td><%= user.id %></td>
+             <td>
+                <button class="del"><a href="/users/<%= user.id %>/delete" class="delete">Delete</a></button>
+             </td>
+            </tr>
+        <%}%>
+      </table>
+      <div style=" width:600px;height:150px;background-color: rgb(75, 158, 123);margin-top: 50px;margin-left:100px;">
+        <button class="r" style="margin-left: 250px;margin-top: 10px;"><a href="/result">result</a></button>
+        <div class="divs" style="display: flex;width:600px;margin-top: 10px;">
+        <div class="div1" style=" width:170px; height:80px;background-color: rgb(192, 194, 87);margin-left: 20px;">
+        <h2>Expense:<%= expense %></h2>
+        </div>
+        <div class="div2" style=" width:170px;height:80px;background-color: rgb(137, 111, 172);margin-left: 20px;"> 
+            <h2>Income: <%= income %></h2>
+        </div>
+        <div class="div3" style="width:170px;height:80px;background-color: rgb(206, 136, 89);margin-left: 20px;">
+            <h2>Balance:<%= balance %></h2>
+        </div>
+        </div>
+      </div>
+</body>
+</html>

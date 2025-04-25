@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="expense">
+        <div class="head2"><h2 style="padding:10px">Expense<br>Tracker</h2></div>
+        <div class="form">
+            <form method="post" action="/userdata">
+                <input type="number" placeholder="Amount" name="amount">
+                <input type="text" placeholder="Transaction" name="transaction">
+                <input type="Date" placeholder="Date" name="date">
+                <button style="width:30px;height:30px; margin-left: 6px;">+</button>
+            </form>
+        </div>
+        <div>
+            <button class="del"><a href="show" class="delete">show</a></button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+body{
+    background-color: white;
+}
+.home{
+    width:1250px;
+    height:650px;
+    border-radius: 3px solid black;
+    background-color:white;
+    display: flex;
+}
+.part1{
+    border-radius: 3px solid white;
+    width:800px;
+}
+.part2{
+    width:450px;
+    background-color: rgb(58, 58, 156);
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+.head{
+    font-style: italic;
+    color: aqua;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.hello{
+    color:black;
+    margin-left: 100px;
+    margin-top: 130px;
+}
+.name{
+    margin-left: 100px;
+    color:rgb(58, 58, 156);
+    font-size: 40px;
+}
+.input{
+    margin-left: 100px; 
+    width: 200px;
+    height:30px;
+    box-shadow: 0 5px 4px 4px rgba(0,0,0,0.2);
+}
+.btn{
+    width:100px;
+    height:30px;
+    margin-left: 100px;
+    margin-top: 20px;
+    background-color:rgb(58, 58, 156);
+    border-radius: 5px;
+    color: white;
+}
+.btn2{
+    width:120px;
+    height:40px;
+    margin-left: 270px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.link2{
+    text-decoration: none;
+    color:rgb(71, 71, 153);
+}
+.expense{
+    width:700px;
+    height:400px;
+    border:1px solid rgb(218, 65, 65);
+    background-color: rgb(138, 68, 68);
+    margin-left: 300px;
+    margin-top: 50px;
+}
+.head2{
+    height:80px;
+    background-color: rgb(75, 75, 170);
+}
+.form{
+    width:600px;
+    height:100px;
+    margin-left: 40px;
+    border:1px solid rgb(214, 196, 196);
+    border-radius: 5px;
+    margin-top: 40px;
+}
+form input{
+    margin-top: 40px;
+    padding:4px;
+    margin-left: 9px;
+    border: none;
+    outline: none;
+  }
+  
+  form input:focus {
+    box-shadow: 0 0 0 2px #8a9eb4; /* custom focus indicator */
+  }
+  table,th,tr,td{
+    border:1px solid black;
+    width: 600px;
+}
+table{
+    margin-left: 50px;
+    margin-top: 70px;
+}
+.del{
+    margin-left: 280px;
+    width:100px;
+    height:20px;
+    margin-top: 50px;
+    background-color: rgb(130, 189, 189);
+}
+.delete{
+    text-decoration: none;
+}
+.r{
+    width:50px;
+    height:30px;
+    border: 2px solid black;
+    background-color: aqua;
+}
+.result{
+    width:400px;
+    height:200px;
+    background-color: rgb(92, 112, 129);
+}
+a{
+    text-decoration: none;
+}
+.divs{
+    display: flex;
+    width:600px;
+}
+.div1 :hover{
+   width:190px;
+   background-color: rosybrown;
+}
+.div2{
+    width:150px;
+    height:80px;
+}
+.div3{
+    width:150px;
+    height:80px;
+}
