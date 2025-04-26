@@ -29,7 +29,7 @@ let paths={
     tracker:"https://m.media-amazon.com/images/I/61JfO8-6-FL._AC_UF1000,1000_QL80_.jpg",
     delete:"https://t4.ftcdn.net/jpg/03/46/38/39/360_F_346383913_JQecl2DhpHy2YakDz1t3h0Tk3Ov8hikq.jpg"
     }
-app.get("/home",(req,res)=>{
+app.get("/",(req,res)=>{
     res.render("home.ejs",{paths});
 })
 app.get("/expenses",(req,res)=>{
