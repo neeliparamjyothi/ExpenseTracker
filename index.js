@@ -62,6 +62,40 @@ try{
   res.send("some error in db");
 }
 })
+app.get("/users/:id/edit",(req,res)=>{
+  let {id}=req.params;
+  let q=`select * from data where id='${id}'`;
+  try{
+    connection.query(q,(err,result)=>{
+       if(err) throw err;
+       console.log(result);
+       let ans=result[0];
+       console.log(ans.id)
+        res.render("edit.ejs",{ans});
+    });
+  }catch(err){
+    console.log("some error");
+    res.send("some error in db");
+  }
+  
+})
+app.patch("/users/:id",(req,res)=>{
+  let {id}=req.params;
+  const amount=req.body.amount;
+  const transaction=req.body.transaction;
+  const date=req.body.date;
+   console.log(id);
+  let q=`update data set amount=${amount},type='${transaction}',date='${date}' where id='${id}'`;
+  try{
+    connection.query(q,(err,result)=>{
+       if(err) throw err;
+        res.redirect("/result");
+    });
+  }catch(err){
+    console.log("some error");
+    res.send("some error in db");
+  }
+});
 app.get("/show",(req,res)=>{
   let q=`select * from data`;
   try{
