@@ -8,6 +8,13 @@
         table,th,tr,td{
             border:1px solid black;
         }
+        body{
+            background: linear-gradient(to right, #f8f9fa, #6f879e);
+        }
+        #myBarChart {
+            max-width: 700px;
+            max-height: 500px;
+        }
     </style>
 </head>
 <body>
@@ -45,5 +52,97 @@
         </div>
         </div>
       </div>
+      <h3 style="margin-left: 200px;">Bar Graph:</h3>
+      <div style="width: 500px; margin: auto;height:300px;">
+        <canvas id="myBarChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myBarChart').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Expenses', 'Income', 'Balance'],
+                datasets: [{
+                    label: 'Overview',
+                    data: [
+                        <%= expense %>, 
+                        <%= income %>, 
+                        <%= balance %>
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 200, 132, 0.6)',  // Expenses - Pink
+                        'rgba(75, 152, 192, 0.6)',  // Income - Green
+                        'rgba(153, 52, 255, 0.6)'  // Balance - Purple
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 10
+                            },
+                            callback: function(value, index) {
+                                // Set custom color for each label
+                                const colors = ['#FF6384', '#4BC0C0', '#9966FF'];
+                                this.ctx.fillStyle = colors[index];
+                                return this.getLabelForValue(value);
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 10
+                            },
+                            color: '#666' // y-axis labels in grey
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 10
+                            },
+                            color: '#444' // legend color
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                // Small trick to allow per-label coloring
+                id: 'coloredLabels',
+                afterDraw(chart) {
+                    const ctx = chart.ctx;
+                    const xAxis = chart.scales.x;
+                    const colors = ['#FF6384', '#4BC0C0', '#9966FF'];
+
+                    ctx.save();
+                    xAxis.ticks.forEach((tick, index) => {
+                        const label = tick.label;
+                        const x = xAxis.getPixelForTick(index);
+                        ctx.fillStyle = colors[index];
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.font = "10px Arial";
+                        ctx.fillText(label, x, chart.height - 10);
+                    });
+                    ctx.restore();
+                }
+            }]
+        });
+    </script>
 </body>
 </html>
