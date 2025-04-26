@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname,"public")));
 const { v4: uuidv4 } = require('uuid');
 var connection=mysql.createConnection({
   host:'127.0.0.1',
-  port: '3306',
   user:'root',
   password:'Jyothi@123',
   database:'delta_app'
